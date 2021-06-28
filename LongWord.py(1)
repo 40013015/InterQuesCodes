@@ -1,0 +1,24 @@
+# program to print longest word in a string
+
+string = str(input())
+notaAlpha = []
+new = string.replace(" ", "")
+for char in new:
+    if not char.isalpha():
+        notaAlpha.append(char)
+print(notaAlpha)
+
+for item in notaAlpha:
+    string = string.replace(item, "")
+print(string)
+
+li = string.split()
+print(li)
+
+maximum = 0
+for word in li:
+    if len(word) >= maximum:
+        longest_word = word
+        maximum = len(word)
+
+print(longest_word)
