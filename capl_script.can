@@ -1,0 +1,99 @@
+/*@!Encoding:1252*/
+variables{
+				mstimer t1;
+				mstimer t2;
+				mstimer t3;
+				mstimer t4;
+            
+				int t1delay=5;
+				int t2delay=15;
+				int t3delay=20;
+				int t4delay=70;
+            
+
+message can1.0x1D4 KeyMsgL3 = 
+{
+  dlc=8,
+  byte(0) = 0x00,
+  byte(1) = 0x00,
+  byte(2) = 0x00,
+  byte(3) = 0x0C,
+  byte(4) = 0x00,
+  byte(5) = 0x00,
+  byte(6) = 0x00,
+  byte(7) = 0x00
+};
+
+message can1.0x1D4 KeyMsgOFF = {
+  dlc=8,
+  byte(0) = 0x00,
+  byte(1) = 0x00,
+  byte(2) = 0x00,
+  byte(3) = 0x00,
+  byte(4) = 0x00,
+  byte(5) = 0x00,
+  byte(6) = 0x00,
+  byte(7) = 0x00
+};
+  
+			}
+         
+
+on key 'a'{
+            //send message with Level 3
+            output(KeyMsgL3);
+				settimer(t1,t1delay);
+				
+			}
+         
+         on key 'b'{
+         //send message with Level 3
+         output(KeyMsgL3);
+				settimer(t2,t2delay);
+				
+			}
+         
+         on key 'c'{
+         //send message with Level 3
+         output(KeyMsgL3);
+				settimer(t3,t3delay);
+				
+			}
+         
+         on key 'd'{
+         //send message with Level 3
+         output(KeyMsgL3);
+				settimer(t4,t3delay);
+				
+			}
+         
+			on timer t1{
+				write("5ms Timer.");
+            output(KeyMsgOFF);
+				//settimer(t1,t1delay);
+            //send message with default
+			}
+
+			on timer t2{
+				write("15ms Timer.");
+            output(KeyMsgOFF);
+				//settimer(t2,t2delay);
+            //send message with default
+			}
+
+			on timer t3{
+				write("25ms Timer.");
+            output(KeyMsgOFF);
+				//settimer(t1,t1delay);
+            //send message with default
+			}
+         
+			on timer t4{
+				write("70ms Timer.");
+            output(KeyMsgOFF);
+				settimer(t1,t1delay);
+            //send message with default
+			}
+         
+
+			
