@@ -12,7 +12,7 @@ for item in notaAlpha:
     string = string.replace(item, "")
 print(string)
 
-li = string.split()
+'''li = string.split()
 print(li)
 
 maximum = 0
@@ -21,4 +21,6 @@ for word in li:
         longest_word = word
         maximum = len(word)
 
-print(longest_word)
+print(longest_word)'''
+
+
